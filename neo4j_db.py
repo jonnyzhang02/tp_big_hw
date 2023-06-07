@@ -9,10 +9,10 @@ Description: coded by ZhangYang@BUPT, my email is zhangynag0207@bupt.edu.cn
 from neo4j import GraphDatabase
 import pandas as pd
 
-uri = "bolt://localhost:7687" # 或者你的Neo4j数据库地址
-driver = GraphDatabase.driver(uri, auth=("neo4j", "12345678")) # 使用你的用户名和密码
+uri = "bolt://localhost:7687" # Neo4j数据库地址
+driver = GraphDatabase.driver(uri, auth=("neo4j", "12345678")) # 用户名和密码
 
-df = pd.read_csv('./triplets.csv') # 使用你的CSV文件路径
+df = pd.read_csv('./triplets.csv') # CSV文件路径
 
 def add_data(tx, entity1, relation, entity2):
     tx.run("MERGE (e1:Entity { name: $entity1 }) "
